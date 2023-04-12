@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+// layers
 #define BASE 0
 #define NAV  1
 #define NUM  2
@@ -19,10 +20,13 @@
 #define BLU 6
 
 &mt {
+// quick-tap-ms: If you press a tapped hold-tap again within quick-tap-ms milliseconds, it will always trigger the tap behavior. This is useful for things like a backspace, where a quick tap+hold holds backspace pressed. Set this to a negative value to disable. The default is -1 (disabled).
+// tapping-term-ms: Defines how long a key must be pressed to trigger Hold behavior.
+//
   quick-tap-ms = <100>;
   global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <180>;
+  tapping-term-ms = <500>;
 };
 
 / {
@@ -40,7 +44,7 @@
 &kp Q          &kp W          &kp E          &kp R          &kp T               &kp Y          &kp U          &kp I          &kp O          &kp P
 &mt LGUI A     &mt LALT S     &mt LCTRL D    &mt LSHFT F    &kp G               &kp H          &mt RSHFT J    &mt RCTRL K    &mt RALT L     &mt LGUI SQT
 &kp Z          &kp X          &kp C          &kp V          &kp B               &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH
-&lt MEDIA ESC  &lt NAV SPACE  &lt BLU TAB    &bootloader                                       &kp K_MUTE     &lt SYM RET    &lt NUM BKSP   &lt FUN DEL
+&lt MEDIA ESC  &lt NAV BKSP  &lt BLU TAB    &bootloader                                       &kp K_MUTE     &lt SYM RET    &lt NUM SPACE   &lt FUN DEL
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
