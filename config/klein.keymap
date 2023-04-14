@@ -52,10 +52,10 @@
 
         nav_layer {
             bindings = <
-&mt ESC J  &mt LS(NUMBER_1) N1  &mt LS(NUMBER_2) N2  &mt LS(NUMBER_3) N3  &mt LS(NUMBER_4) N4    &kp CAPSLOCK  &bt BT_CLR  &kp K_CUT     &kp K_COPY  &kp K_PASTE
-&kp L                &kp Q                &kp W                &kp E                &kp R        &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT       &trans
-&kp C                &kp A                &kp S                &kp D                &kp F      &kp INSERT    &kp HOME  &kp PG_UP      &kp PG_DN      &kp END
-&kp B            &kp M       &mt LEFT_ALT SPACE                &none                                            &none    &kp RET  &kp BACKSPACE     &tog NAV
+&mt ESC J  &mt LA(NUMBER_1) N1  &mt LA(NUMBER_2) N2  &mt LA(NUMBER_3) N3  &mt LA(NUMBER_4) N4    &kp CAPSLOCK  &bt BT_CLR  &kp K_CUT     &kp K_COPY  &kp K_PASTE
+    &kp L                &kp Q                &kp W                &kp E                &kp R        &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT       &trans
+    &kp C                &kp A                &kp S                &kp D                &kp F      &kp INSERT    &kp HOME  &kp PG_UP      &kp PG_DN      &kp END
+    &kp B                &kp M   &mt LEFT_ALT SPACE                &none                                            &none    &kp RET  &kp BACKSPACE     &tog NAV
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
