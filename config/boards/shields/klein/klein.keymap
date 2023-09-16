@@ -35,7 +35,34 @@
     tapping-term-ms = <500>;
 };
 
+&lt {
+    tapping-term-ms = <240>;
+    flavor = "balanced";
+    quick-tap-ms = <150>;
+};
+
+
+
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            global-quick-tap;
+            bindings =
+                <&kp>,
+                <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
