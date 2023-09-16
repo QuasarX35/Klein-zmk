@@ -47,12 +47,12 @@
 
             bindings = <
     &lt EXTRA Q     &kp W           &kp E       &kp R       &kp T  /**/  &kp Y        &kp U         &kp I           &kp O               &lt EXTRA P
-    &mt LGUI A      &mt LALT S      &mt LCTRL D &mt LSHFT F &kp G  /**/  &kp H        &mt RSHFT J   &mt RCTRL K     &mt RALT L          &mt RGUI SINGLE_QUOTE
+    &mt LGUI A      &mt LALT S      &mt LCTRL D &mt LSHFT F &kp G  /**/  &kp H        &mt RSHFT J   &mt RCTRL K     &mt RALT L          &kp SINGLE_QUOTE
     &lt BUTTON Z    &kp X           &kp C       &kp V       &kp B  /**/  &kp N        &kp M         &kp COMMA       &kp DOT             &lt BUTTON FSLH
     &lt MEDIA ESC   &lt NAV SPACE   &lt BLU TAB &none              /**/               &none         &lt SYM RETURN  &lt NUM BACKSPACE   &lt FUN DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp EXTRA NAV &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         nav_layer {
@@ -60,7 +60,7 @@
     &trans      &trans      &trans      &trans      &trans  /**/  &kp K_REDO    &kp K_PASTE &kp K_COPY  &kp K_CUT       &kp K_UNDO
     &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &trans  /**/  &kp CAPSLOCK  &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT
     &trans      &trans      &trans      &trans      &trans  /**/  &kp INSERT    &kp HOME    &kp PG_UP   &kp PG_DN       &kp END
-    &trans      &trans      &trans      &none               /**/                &none       &kp RETURN  &kp BACKSPACE   &kp DEL
+    &tog NAV      &trans      &trans      &none               /**/                &none       &kp RETURN  &kp BACKSPACE   &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -135,7 +135,7 @@
         extra_layer {
 
             bindings = <
-    &trans      &trans      &trans  &trans  &trans  /**/  &trans    &trans      &trans      &trans      &trans
+    &trans      &trans      &trans  &trans  &trans  /**/  &trans    &trans      &trans      &trans      &tog EXTRA
     &tog GAME   &tog MAKS   &trans  &trans  &trans  /**/  &trans    &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI
     &trans      &trans      &trans  &trans  &trans  /**/  &trans    &trans      &trans      &trans      &trans
     &trans      &trans      &trans  &trans          /**/            &trans      &trans      &trans      &trans
