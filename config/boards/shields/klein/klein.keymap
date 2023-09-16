@@ -60,7 +60,7 @@
             &kp ESC         &lt NAV SPACE   &lt BLU TAB &none              /**/         &none         &lt SYM RETURN  &lt NUM_FUN BACKSPACE &lt EXTRA DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         nav_layer {
@@ -71,7 +71,7 @@
             &trans      &trans      &trans      &none               /**/                &none       &kp RETURN  &kp BACKSPACE       &kp DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         num_fun_layer {
