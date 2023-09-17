@@ -27,7 +27,7 @@
 &mt {
     // quick-tap-ms: If you press a tapped hold-tap again within quick-tap-ms milliseconds, it will always trigger the tap behavior. This is useful for things like a backspace, where a quick tap+hold holds backspace pressed. Set this to a negative value to disable. The default is -1 (disabled).
     // tapping-term-ms: Defines how long a key must be pressed to trigger Hold behavior.
-    //
+
 
     quick-tap-ms = <125>;
     global-quick-tap;
@@ -92,7 +92,7 @@
             &kp ESC         &lt NAV SPACE   &lt BLU TAB &none              /**/         &none         &lt SYM RETURN  &lt NUM_FUN BACKSPACE &lt EXTRA DEL
             >;
 
-            sensor-bindings = <&rot_tog EXTRA NAV &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         nav_layer {
@@ -103,7 +103,7 @@
             &trans      &trans      &trans      &none               /**/                &none       &kp RETURN  &kp BACKSPACE       &kp DEL
             >;
 
-            sensor-bindings = <&rot_tog DEFAULT NUM_FUN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         num_fun_layer {
@@ -114,7 +114,7 @@
             &kp ASTERISK    &kp N0      &kp PERIOD      &none                      /**/             &none           &trans          &trans       &trans
             >;
 
-            sensor-bindings = <&rot_tog NAV SYM &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         sym_layer {
@@ -125,7 +125,7 @@
             &kp LPAR    &kp RPAR    &kp UNDER   &none                 /**/          &none       &trans      &trans      &trans
             >;
 
-            sensor-bindings = <&rot_tog NUM_FUN EXTRA &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         blu_layer {
@@ -192,7 +192,7 @@
             &trans      &trans      &trans  &trans          /**/            &trans      &trans      &trans      &trans
             >;
 
-            sensor-bindings = <&rot_tog SYM DEFAULT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         game_layer {
