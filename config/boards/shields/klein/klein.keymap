@@ -25,6 +25,8 @@
 #define GAME 6
 #define MAKS 7
 
+&out OUT_BLE
+
 &mt {
     // quick-tap-ms: If you press a tapped hold-tap again within quick-tap-ms milliseconds, it will always trigger the tap behavior. This is useful for things like a backspace, where a quick tap+hold holds backspace pressed. Set this to a negative value to disable. The default is -1 (disabled).
     // tapping-term-ms: Defines how long a key must be pressed to trigger Hold behavior.
@@ -41,8 +43,6 @@
     flavor = "balanced";
     quick-tap-ms = <150>;
 };
-
-&out OUT_BLE;
 
 / {
     behaviors {
