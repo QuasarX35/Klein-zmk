@@ -42,7 +42,7 @@
     quick-tap-ms = <150>;
 };
 
-// &out OUT_BLE
+&out OUT_BLE;
 
 / {
     behaviors {
