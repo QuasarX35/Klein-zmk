@@ -220,7 +220,7 @@
             &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_DEFAULT     &trans  /**/  &kp LC(Y) &kp LC(P)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT           &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &caps_word
             &trans          &kp RALT    &u_to_U_SYM     &u_to_U_MOUSE       &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END     &kp INSERT
-            &trans          &trans      &trans          &none                       /**/            &none       &mkp RCLK   &mkp LCLK   &mkp MCLK
+            &trans          &trans      &trans          &none                       /**/            &none       &trans      &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -231,7 +231,7 @@
             &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(P)   &kp LC(Y)   /**/   &kp LC(Y)    &kp LC(P)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
             &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &trans      /**/   &trans       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI
             &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(P)   &kp LC(Y)   /**/   &kp LC(Y)    &kp LC(P)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
-            &mkp MCLK   &mkp LCLK   &mkp RCLK   &none                   /**/                &none       &mkp RCLK   &mkp LCLK   &mkp MCLK
+            &trans      &trans      &trans      &none                   /**/                &none       &trans      &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -308,7 +308,7 @@
             &kp N1                  &kp N2      &kp N3      &kp N4  &kp N5     /**/  &trans    &trans   &trans  &trans          &trans
             &mt V Z                 &kp Q       &kp W       &kp E   &kp R      /**/  &trans    &trans   &trans  &trans          &trans
             &kp X T                 &kp A       &kp S       &kp D   &kp F      /**/  &trans    &trans   &trans  &trans          &trans
-            &lt GENSHIN_EXTRA ESC   &kp SPACE   &kp LALT    &none              /**/            &none    &trans  &tog DEFAULT    &trans
+            &lt GENSHIN_EXTRA ESC   &kp SPACE   &kp LALT    &none              /**/            &none    &kp RET &tog DEFAULT    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
