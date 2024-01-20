@@ -220,7 +220,7 @@
             &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_DEFAULT     &trans  /**/  &kp LC(Y) &kp LC(P)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT           &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &caps_word
             &trans          &kp RALT    &u_to_U_SYM     &u_to_U_MOUSE       &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END     &kp INSERT
-            &trans          &none       &trans          &none                       /**/            &none       &mkp RCLK   &mkp LCLK   &mkp MCLK
+            &trans          &trans      &trans          &none                       /**/            &none       &mkp RCLK   &mkp LCLK   &mkp MCLK
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
