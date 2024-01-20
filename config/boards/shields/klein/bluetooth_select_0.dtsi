@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        /omit-if-no-ref/ u_bt_sel_0: bluetooth_select_0 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&bt BT_CLR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
