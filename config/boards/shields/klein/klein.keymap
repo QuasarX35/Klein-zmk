@@ -231,7 +231,7 @@
             &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(P)   &kp LC(Y)   /**/   &kp LC(Y)    &kp LC(P)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
             &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &trans      /**/   &trans       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI
             &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(P)   &kp LC(Y)   /**/   &kp LC(Y)    &kp LC(P)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
-            &trans      &trans      &trans      &none                   /**/                &none       &trans      &trans      &trans
+            &kp ESC     &kp SPACE   &kp TAB     &none                   /**/                &none       &kp RET     &kp BSPC    &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -241,7 +241,7 @@
             bindings = <
             &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_DEFAULT &trans  /**/  &rgb_ug RGB_EFF   &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT       &trans  /**/  &kp C_PREV        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &ext_power EP_TOG
-            &trans          &kp RALT    &u_to_U_FUN     &u_to_U_MEDIA   &trans  /**/  &u_bt_sel_0       &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3     &bt BT_CLR_ALL
+            &trans          &kp RALT    &u_to_U_FUN     &u_to_U_MEDIA   &trans  /**/  &u_bt_sel_0       &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3     &bt BT_CLR
             &trans          &trans      &trans          &none                   /**/                    &none           &kp C_PAUSE     &kp C_PP        &kp C_MUTE
             >;
 
