@@ -291,10 +291,10 @@
 
         extra_layer {
             bindings = <
-            &trans          &trans      &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
-            &tog GENSHIN    &trans      &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
-            &trans          &trans      &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
-            &trans          &trans      &trans  &none           /**/            &none   &trans  &tog DEFAULT    &trans
+            &trans          &trans      &trans  &trans  &trans  /**/  &trans    &u_to_U_DEFAULT &trans  &trans          &trans
+            &tog GENSHIN    &trans      &trans  &trans  &trans  /**/  &trans    &trans          &trans  &trans          &trans
+            &trans          &trans      &trans  &trans  &trans  /**/  &trans    &trans          &trans  &trans          &trans
+            &trans          &trans      &trans  &none           /**/            &none           &trans  &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -313,10 +313,10 @@
 
         genshin_layer {
             bindings = <
-            &kp N1                  &kp N2      &kp N3      &kp N4  &kp N5     /**/  &trans    &trans   &trans  &trans          &trans
-            &mt V Z                 &kp Q       &kp W       &kp E   &kp R      /**/  &trans    &trans   &trans  &trans          &trans
-            &mt X T                 &kp A       &kp S       &kp D   &kp F      /**/  &trans    &trans   &trans  &trans          &trans
-            &lt GENSHIN_EXTRA ESC   &kp SPACE   &kp LALT    &none              /**/            &none    &kp RET &u_to_U_DEFAULT &trans
+            &kp N1                  &kp N2      &kp N3      &kp N4  &kp N5     /**/  &trans    &u_to_U_DEFAULT  &trans  &trans          &trans
+            &mt V Z                 &kp Q       &kp W       &kp E   &kp R      /**/  &trans    &trans           &trans  &trans          &trans
+            &mt X T                 &kp A       &kp S       &kp D   &kp F      /**/  &trans    &trans           &trans  &trans          &trans
+            &lt GENSHIN_EXTRA ESC   &kp SPACE   &kp LALT    &none              /**/            &none            &kp RET &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
