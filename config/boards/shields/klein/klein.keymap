@@ -300,7 +300,7 @@
         extra_layer {
             bindings = <
             &trans          &trans      &trans  &trans  &trans  /**/  &trans    &u_to_U_DEFAULT &trans  &trans          &trans
-            &tog GENSHIn    &trans      &trans  &trans  &trans  /**/  &trans    &trans          &trans  &trans          &trans
+            &tog GENSHIN    &trans      &trans  &trans  &trans  /**/  &trans    &trans          &trans  &trans          &trans
             &trans          &trans      &trans  &trans  &trans  /**/  &trans    &trans          &trans  &trans          &trans
             &trans          &trans      &trans  &none           /**/            &none           &trans  &trans          &trans
             >;
