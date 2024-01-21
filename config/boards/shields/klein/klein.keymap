@@ -324,10 +324,10 @@
 
         genshin_extra_layer {
             bindings = <
-            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     /**/  &trans    &trans   &trans  &trans  &trans
-            &kp F6  &kp O   &kp J   &kp P   &kp Y      /**/  &trans    &trans   &trans  &trans  &trans
-            &kp L   &kp B   &kp M   &kp C   &kp G      /**/  &trans    &trans   &trans  &trans  &trans
-            &trans  &trans  &trans  &none              /**/            &none    &trans  &trans  &trans
+            &kp F1          &kp F2  &kp F3  &kp F4  &kp F5     /**/  &trans    &trans   &trans  &trans  &trans
+            &tog DEFAULT    &kp O   &kp J   &kp P   &kp Y      /**/  &trans    &trans   &trans  &trans  &trans
+            &kp L           &kp B   &kp M   &kp C   &kp G      /**/  &trans    &trans   &trans  &trans  &trans
+            &trans          &trans  &trans  &none              /**/            &none    &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
