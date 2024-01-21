@@ -321,10 +321,10 @@
 
         genshin_layer {
             bindings = <
-            &kp N1                  &kp N2      &kp N3      &kp N4  &kp N5     /**/  &trans    &trans           &trans  &trans     &trans
-            &mt V Z                 &kp Q       &kp W       &kp E   &kp R      /**/  &trans    &trans           &trans  &trans          &trans
-            &mt X T                 &kp A       &kp S       &kp D   &kp F      /**/  &trans    &trans           &trans  &trans          &trans
-            &lt GENSHIN_EXTRA ESC   &kp SPACE   &kp LALT    &none              /**/            &none            &kp RET &tog GENSHIN          &trans
+            &kp N5      &kp N1      &kp N2                  &kp N3  &kp N4     /**/  &trans    &trans           &trans  &trans          &trans
+            &mt V Z     &kp Q       &kp W                   &kp E   &kp R      /**/  &trans    &trans           &trans  &trans          &trans
+            &mt X T     &kp A       &kp S                   &kp D   &kp F      /**/  &trans    &trans           &trans  &trans          &trans
+            &kp LALT    &kp SPACE   &lt GENSHIN_EXTRA ESC   &none              /**/            &none            &kp RET &tog GENSHIN    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
