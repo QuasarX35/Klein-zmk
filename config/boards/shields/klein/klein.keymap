@@ -337,10 +337,10 @@
 
         warframe_layer {
             bindings = <
-            &kp ESC     &kp N1      &kp N2                  &kp N3  &kp N4   /**/   &trans    &trans   &trans  &bootloader      &trans
+            &kp Y       &kp N1      &kp N2                  &kp N3  &kp N4   /**/   &trans    &trans   &trans  &bootloader      &trans
             &kp LSHFT   &kp Q       &kp W                   &kp E   &kp R    /**/   &trans    &trans   &trans  &trans           &trans
             &kp LCTRL   &kp A       &kp S                   &kp D   &kp F    /**/   &trans    &trans   &trans  &trans           &trans
-            &kp Y       &kp SPACE   &lt WARFRAME_EXTRA N5   &none            /**/             &none    &trans  &tog WARFRAME    &trans
+            &kp ESC     &kp SPACE   &lt WARFRAME_EXTRA N5   &none            /**/             &none    &trans  &tog WARFRAME    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
