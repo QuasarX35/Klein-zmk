@@ -245,7 +245,7 @@
             &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB   &none                      /**/         &none               &lt SYM RETURN  &lt NUM BACKSPACE     &lt FUN DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN_ARROW UP_ARROW>
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         nav_layer {
