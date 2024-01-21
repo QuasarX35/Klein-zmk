@@ -29,6 +29,8 @@
 #define TAP             9
 #define GENSHIN         10
 #define GENSHIN_EXTRA   11
+#define WARFRAME        12
+#define WARFRAME_EXTRA  13
 // #define MAKS 12
 
 &out {
@@ -192,14 +194,6 @@
             tapping-term-ms = <200>;
             bindings = <&none>, <&mo EXTRA>;
         };
-
-        u_to_U_GENSHIN: genshin_layer {
-            label = "u_to_U_GENSHIN";
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&none>, <&tog GENSHIN>;
-        };
     };
 
     combos {
@@ -336,6 +330,28 @@
             &kp F6  &kp O   &kp J   &kp P   &kp Y      /**/  &trans    &trans   &trans  &trans      &trans
             &kp L   &kp B   &kp M   &kp C   &kp G      /**/  &trans    &trans   &trans  &trans      &trans
             &trans  &trans  &trans  &none              /**/            &none    &trans  &trans      &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        warframe_layer {
+            bindings = <
+            &kp ESC     &kp N1      &kp N2                  &kp N3  &kp N4   /**/   &trans    &trans   &trans  &bootloader      &trans
+            &kp LSHFT   &kp Q       &kp W                   &kp E   &kp R    /**/   &trans    &trans   &trans  &trans           &trans
+            &kp LCTRL   &kp A       &kp S                   &kp D   &kp F    /**/   &trans    &trans   &trans  &trans           &trans
+            &kp Y       &kp SPACE   &lt WARFRAME_EXTRA N5   &none            /**/             &none    &trans  &tog WARFRAME    &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        warframe_extra_layer {
+            bindings = <
+            &kp F10 &kp F8  &kp F6  &kp F7  &kp F9   /**/   &trans    &trans   &trans  &bootloader &trans
+            &kp F11 &kp F5  &kp F1  &kp F4  &kp Y    /**/   &trans    &trans   &trans  &trans      &trans
+            &kp L   &kp F2  &kp M   &kp F3  &kp G    /**/   &trans    &trans   &trans  &trans      &trans
+            &trans  &trans  &trans  &none            /**/             &none    &trans  &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
