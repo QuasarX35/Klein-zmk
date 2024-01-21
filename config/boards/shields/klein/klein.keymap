@@ -40,10 +40,10 @@
 &mt {
     // quick-tap-ms: If you press a tapped hold-tap again within quick-tap-ms milliseconds, it will always trigger the tap behavior. This is useful for things like a backspace, where a quick tap+hold holds backspace pressed. Set this to a negative value to disable. The default is -1 (disabled).
     // tapping-term-ms: Defines how long a key must be pressed to trigger Hold behavior.
-    quick-tap-ms = <125>;
+    quick-tap-ms = <10>;
     global-quick-tap;
     flavor = "tap-preferred";
-    tapping-term-ms = <300>;
+    tapping-term-ms = <200>;
 };
 
 &lt {
@@ -74,6 +74,7 @@
             bindings = <&tog>, <&tog>;
         };
 
+        //* ------------------------------- Mod Morphs ------------------------------- *//
         u_bt_sel_0: bluetooth_select_0 {
             label = "u_bt_sel_0";
             compatible = "zmk,behavior-mod-morph";
@@ -106,6 +107,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        //* -------------------------------- Tap Dance ------------------------------- *//
         // double tap to activate layers
         u_to_U_DEFAULT: default_layer {
             label = "u_to_U_DEFAULT";
@@ -194,6 +196,38 @@
             tapping-term-ms = <200>;
             bindings = <&none>, <&mo EXTRA>;
         };
+
+        //* -------------------------- Shift Mod For Typing -------------------------- *//
+        // layer {
+        //     0   1   2   3   4   /**/    5   6   7   8   9
+        //     10  11  12  13  14  /**/    15  16  17  18  19
+        //     20  21  22  23  24  /**/    25  26  27  28  29
+        //     30  31  32  33      /**/        34  35  36  37
+        // };
+
+        pht_lshft: positional_hold_tap_left_shift {
+            label = "pht_lshft";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+            // keys to be capitalized (right keyboard)
+            hold-trigger-key-positions = <5 6 7 8 9 10 15 16 17 18 19 25 26 27 28 29>;
+        };
+
+        pht_rshft: positional_hold_tap_right_shift {
+            label = "pht_rshft";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            // keys to be capitalized (left keyboard)
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>;
+        };
     };
 
     combos {
@@ -205,18 +239,18 @@
 
         default_layer {
             bindings = <
-            &kp Q           &kp W           &kp E           &kp R       &kp T  /**/  &kp Y  &kp U         &kp I           &kp O                 &kp P
-            &mt LGUI A      &mt LALT S      &mt LCTRL D     &mt LSHFT F &kp G  /**/  &kp H  &mt RSHFT J   &mt RCTRL K     &mt RALT L            &mt RGUI SQT
-            &lt BUTTON Z    &kp X           &kp C           &kp V       &kp B  /**/  &kp N  &kp M         &kp COMMA       &kp DOT               &lt BUTTON FSLH
-            &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB   &none              /**/         &none         &lt SYM RETURN  &lt NUM BACKSPACE     &lt FUN DEL
+            &kp Q           &kp W           &kp E           &kp R               &kp T  /**/  &kp Y  &kp U               &kp I           &kp O                 &kp P
+            &mt LGUI A      &mt LALT S      &mt LCTRL D     &pht_lshft LSHFT F  &kp G  /**/  &kp H  &pht_rshft RSHFT J  &mt RCTRL K     &mt RALT L            &mt RGUI SQT
+            &lt BUTTON Z    &kp X           &kp C           &kp V               &kp B  /**/  &kp N  &kp M               &kp COMMA       &kp DOT               &lt BUTTON FSLH
+            &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB   &none                      /**/         &none               &lt SYM RETURN  &lt NUM BACKSPACE     &lt FUN DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN_ARROW UP_ARROW>
         };
 
         nav_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_DEFAULT     &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
+            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_NAV     &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT           &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT       &caps_word
             &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV         &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END         &kp INSERT
             &trans          &none       &trans          &none                       /**/            &none       &kp RET     &kp BACKSPACE   &kp DEL
@@ -227,7 +261,7 @@
 
         mouse_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_DEFAULT     &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
+            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_MOUSE     &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT           &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &trans
             &trans          &kp RALT    &u_to_U_SYM     &u_to_U_MOUSE       &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END     &trans
             &trans          &trans      &trans          &none                       /**/            &none       &trans      &trans      &trans
@@ -249,7 +283,7 @@
 
         media_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_DEFAULT &trans  /**/  &rgb_ug RGB_EFF   &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
+            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_MEDIA   &trans  /**/  &rgb_ug RGB_EFF   &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT       &trans  /**/  &kp C_PREV        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &ext_power EP_TOG
             &trans          &kp RALT    &u_to_U_FUN     &u_to_U_MEDIA   &trans  /**/  &u_bt_sel_0       &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3     &bt BT_CLR
             &trans          &trans      &trans          &none                   /**/                    &none           &kp C_PAUSE     &kp C_PP        &kp C_MUTE
@@ -260,7 +294,7 @@
 
         num_layer {
             bindings = <
-            &kp LBKT    &kp N7  &kp N8      &kp N9  &kp RBKT   /**/  &trans &u_to_U_DEFAULT &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
+            &kp LBKT    &kp N7  &kp N8      &kp N9  &kp RBKT   /**/  &trans &u_to_U_NUM     &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
             &kp SEMI    &kp N4  &kp N5      &kp N6  &kp EQUAL  /**/  &trans &kp RSHFT       &kp RCTRL       &kp RALT    &kp RGUI
             &kp GRAVE   &kp N1  &kp N2      &kp N3  &kp BSLH   /**/  &trans &u_to_U_NUM     &u_to_U_NAV     &kp LALT    &trans
             &kp PERIOD  &kp N0  &kp MINUS   &none              /**/         &none           &trans          &trans      &trans
@@ -271,7 +305,7 @@
 
         sym_layer {
             bindings = <
-            &kp LBRC    &kp AMPS    &kp ASTRK   &kp LPAR    &kp RBRC   /**/  &trans &u_to_U_DEFAULT &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
+            &kp LBRC    &kp AMPS    &kp ASTRK   &kp LPAR    &kp RBRC   /**/  &trans &u_to_U_SYM     &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
             &kp COLON   &kp DOLLAR  &kp PERCENT &kp CARET   &kp PLUS   /**/  &trans &kp RSHFT       &kp RCTRL       &kp RALT    &kp RGUI
             &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE   /**/  &trans &u_to_U_SYM     &u_to_U_MOUSE   &kp LALT    &trans
             &kp LPAR    &kp RPAR    &kp UNDER   &none                  /**/         &none           &trans          &trans      &trans
@@ -282,7 +316,7 @@
 
         fun_layer {
             bindings = <
-            &kp F12     &kp F7      &kp F8  &kp F9  &kp PSCRN        /**/  &trans &u_to_U_DEFAULT &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
+            &kp F12     &kp F7      &kp F8  &kp F9  &kp PSCRN        /**/  &trans &u_to_U_FUN     &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
             &kp F11     &kp F4      &kp F5  &kp F6  &kp SLCK         /**/  &trans &kp RSHFT       &kp RCTRL       &kp RALT    &kp RGUI
             &kp F10     &kp F1      &kp F2  &kp F3  &kp PAUSE_BREAK  /**/  &trans &u_to_U_FUN     &u_to_U_MEDIA   &kp LALT    &trans
             &kp ESC     &kp SPACE   &kp TAB &none                                 &none           &trans          &trans      &trans
@@ -294,7 +328,7 @@
         extra_layer {
             bindings = <
             &trans          &none           &trans  &trans  &trans  /**/  &trans    &none   &trans  &trans          &trans
-            &tog GENSHIN    &tog WARFRAME   &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &tog EXTRA
+            &tog GENSHIN    &tog WARFRAME   &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
             &trans          &trans          &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
             &trans          &trans          &trans  &none           /**/            &none   &trans  &trans          &trans
             >;
@@ -318,7 +352,7 @@
             &kp N5      &kp N1      &kp N2                  &kp N3  &kp N4     /**/  &trans    &trans           &trans  &trans          &trans
             &mt V Z     &kp Q       &kp W                   &kp E   &kp R      /**/  &trans    &trans           &trans  &trans          &trans
             &mt X T     &kp A       &kp S                   &kp D   &kp F      /**/  &trans    &trans           &trans  &trans          &trans
-            &kp LALT    &kp SPACE   &lt GENSHIN_EXTRA ESC   &none              /**/            &none            &kp RET &tog GENSHIN    &trans
+            &kp LALT    &kp SPACE   &lt GENSHIN_EXTRA ESC   &none              /**/            &none            &trans  &tog GENSHIN    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
