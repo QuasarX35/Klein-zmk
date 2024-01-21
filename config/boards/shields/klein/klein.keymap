@@ -293,10 +293,10 @@
 
         extra_layer {
             bindings = <
-            &trans          &none       &trans  &trans  &trans  /**/  &trans    &none   &trans  &trans          &trans
-            &tog GENSHIN    &trans      &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &tog EXTRA
-            &trans          &trans      &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
-            &trans          &trans      &trans  &none           /**/            &none   &trans  &trans          &trans
+            &trans          &none           &trans  &trans  &trans  /**/  &trans    &none   &trans  &trans          &trans
+            &tog GENSHIN    &tog WARFRAME   &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &tog EXTRA
+            &trans          &trans          &trans  &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
+            &trans          &trans          &trans  &none           /**/            &none   &trans  &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
