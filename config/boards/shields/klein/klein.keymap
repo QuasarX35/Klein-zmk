@@ -226,10 +226,10 @@
 
         default_layer {
             bindings = <
-            &kp Q           &kp W           &kp E           &kp R           &kp T       /**/    &kp Y       &kp U           &kp I           &kp O               &kp P
-            &lh_pht LGUI A  &lh_pht LALT S  &lh_pht LCTRL D &lh_pht LSHFT F &lh_pht G   /**/    &rh_pht H   &rh_pht RSHFT J &rh_pht RCTRL K &rh_pht RALT L      &rh_pht RGUI SQT
-            &lt BUTTON Z    &kp X           &kp C           &kp V           &kp B       /**/    &kp N       &kp M           &kp COMMA       &kp DOT             &lt BUTTON FSLH
-            &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB   &none                       /**/                &none           &lt SYM RETURN  &lt NUM BACKSPACE   &lt FUN DEL
+            &kp Q           &kp W           &kp E           &kp R           &kp T   /**/    &kp Y   &kp U           &kp I           &kp O               &kp P
+            &lh_pht LGUI A  &lh_pht LALT S  &lh_pht LCTRL D &lh_pht LSHFT F &kp G   /**/    &kp H   &rh_pht RSHFT J &rh_pht RCTRL K &rh_pht RALT L      &rh_pht RGUI SQT
+            &lt BUTTON Z    &kp X           &kp C           &kp V           &kp B   /**/    &kp N   &kp M           &kp COMMA       &kp DOT             &lt BUTTON FSLH
+            &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB   &none                   /**/            &none           &lt SYM RETURN  &lt NUM BACKSPACE   &lt FUN DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN_ARROW UP_ARROW>;
@@ -237,10 +237,10 @@
 
         nav_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_NAV     &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
-            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT           &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT       &caps_word
-            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV         &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END         &kp INSERT
-            &trans          &none       &trans          &none                       /**/            &none       &kp RET     &kp BACKSPACE   &kp DEL
+            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_NAV &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
+            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT   &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT       &caps_word
+            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END         &kp INSERT
+            &trans          &none       &trans          &none               /**/            &none       &kp RET     &kp BACKSPACE   &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
