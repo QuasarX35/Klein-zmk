@@ -370,7 +370,7 @@
             &kp Q       &kp W   &kp E   &kp R   &kp T   /**/    &kp U   &kp I   &kp O   &kp P       &kp RBKT
             &kp A       &kp S   &kp D   &kp F   &kp G   /**/    &kp J   &kp K   &kp L   &kp SEMI    &kp COMMA
             &tog STENO  &none   &none   &none   &none   /**/    &none   &none   &none   &none       &tog STENO
-            &none       &kp C   &kp V   &none           /**/            &non    &kp N   &kp M       &none
+            &none       &kp C   &kp V   &none           /**/            &none   &kp N   &kp M       &none
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
