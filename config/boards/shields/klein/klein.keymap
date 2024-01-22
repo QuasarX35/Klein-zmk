@@ -185,7 +185,7 @@
             bindings = <&none>, <&mo EXTRA>;
         };
 
-        //* -------------------------- Shift Mod For Typing -------------------------- *//
+        //* ------------------------------ Homerow Mods ------------------------------ *//
         // layer {
         //     0   1   2   3   4   /**/    5   6   7   8   9
         //     10  11  12  13  14  /**/    15  16  17  18  19
@@ -201,6 +201,18 @@
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+
+        //* --------------------------------- Macros --------------------------------- *//
+        scrsht: screenshot {
+            label = "screenshot";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI &kp LSHFT>
+                , <&macro_tap &kp S>
+                , <&macro_release &kp LGUI &kp LSHFT>
+                ;
         };
     };
 
@@ -257,10 +269,10 @@
 
         media_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_MEDIA   &trans  /**/  &rgb_ug RGB_EFF   &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
-            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT       &trans  /**/  &kp C_PREV        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &ext_power EP_TOG
-            &trans          &kp RALT    &u_to_U_FUN     &u_to_U_MEDIA   &trans  /**/  &u_bt_sel_0       &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3     &bt BT_CLR
-            &trans          &trans      &trans          &none                   /**/                    &none           &kp C_PAUSE     &kp C_PP        &kp C_MUTE
+            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_MEDIA   &trans  /**/  &scrsht       &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
+            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT       &trans  /**/  &kp C_PREV    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &ext_power EP_TOG
+            &trans          &kp RALT    &u_to_U_FUN     &u_to_U_MEDIA   &trans  /**/  &u_bt_sel_0   &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3     &bt BT_CLR
+            &trans          &trans      &trans          &none                   /**/                &none           &kp C_PAUSE     &kp C_PP        &kp C_MUTE
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP>;
