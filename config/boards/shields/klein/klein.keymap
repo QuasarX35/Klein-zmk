@@ -31,6 +31,7 @@
 #define GENSHIN_EXTRA   11
 #define WARFRAME        12
 #define WARFRAME_EXTRA  13
+#define STENO           14
 // #define MAKS 12
 
 &out {
@@ -359,6 +360,17 @@
             &kp F11 &kp F5  &kp F1  &kp F4  &kp Y    /**/   &trans    &trans   &trans  &trans      &trans
             &kp L   &kp F2  &kp M   &kp F3  &kp G    /**/   &trans    &trans   &trans  &trans      &trans
             &trans  &trans  &trans  &none            /**/             &none    &trans  &trans      &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        steno_layer {
+            bindings = <
+            &kp Q       &kp W   &kp E   &kp R   &kp T   /**/    &kp U   &kp I   &kp O   &kp P       &kp RBKT
+            &kp A       &kp S   &kp D   &kp F   &kp G   /**/    &kp J   &kp K   &kp L   &kp SEMI    &kp COMMA
+            &tog STENO  &none   &none   &none   &none   /**/    &none   &none   &none   &none       &tog STENO
+            &none       &kp C   &kp V   &none           /**/            &non    &kp N   &kp M       &none
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
