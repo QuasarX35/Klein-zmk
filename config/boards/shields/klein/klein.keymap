@@ -214,6 +214,21 @@
                 , <&macro_release &kp LGUI &kp LSHFT>
                 ;
         };
+
+        o_genshin: open_genshin {
+            label = "open_genshin";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp N1>
+                , <&macro_release &kp LGUI>
+                , <&macro_tap &kp G &kp A &kp RET>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp F4>
+                , <&macro_release &kp LALT>
+                ;
+        }
     };
 
     combos {
@@ -335,10 +350,10 @@
 
         genshin_layer {
             bindings = <
-            &kp N5      &kp N1      &kp N2                  &kp N3  &kp N4     /**/  &trans    &trans           &trans  &trans          &trans
-            &mt V Z     &kp Q       &kp W                   &kp E   &kp R      /**/  &trans    &trans           &trans  &trans          &trans
-            &mt X T     &kp A       &kp S                   &kp D   &kp F      /**/  &trans    &trans           &trans  &trans          &trans
-            &kp LALT    &kp SPACE   &lt GENSHIN_EXTRA ESC   &none              /**/            &none            &trans  &tog GENSHIN    &trans
+            &kp N5      &kp N1      &kp N2                  &kp N3  &kp N4     /**/  &o_genshin &trans           &trans  &trans          &trans
+            &mt V Z     &kp Q       &kp W                   &kp E   &kp R      /**/  &trans     &trans           &trans  &trans          &trans
+            &mt X T     &kp A       &kp S                   &kp D   &kp F      /**/  &trans     &trans           &trans  &trans          &trans
+            &kp LALT    &kp SPACE   &lt GENSHIN_EXTRA ESC   &none              /**/             &none            &trans  &tog GENSHIN    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -379,10 +394,10 @@
 
         steno_layer {
             bindings = <
-            &kp Q       &kp W   &kp E   &kp R   &kp T   /**/    &kp U   &kp I   &kp O   &kp P       &kp RBKT
+            &kp Q       &kp W   &kp E   &kp R   &kp T   /**/    &kp U   &kp I   &kp O   &kp P       &kp LBKT
             &kp A       &kp S   &kp D   &kp F   &kp G   /**/    &kp J   &kp K   &kp L   &kp SEMI    &kp COMMA
             &tog STENO  &none   &none   &none   &none   /**/    &none   &none   &none   &none       &tog STENO
-            &none       &kp C   &kp V   &none           /**/            &none   &kp N   &kp M       &none
+            &none       &kp C   &kp V   &none           /**/            &none   &kp N   &kp M       &kp BSPC
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
