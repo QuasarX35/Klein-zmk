@@ -253,7 +253,7 @@
             bindings = <
             &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_NAV &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT   &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT       &caps_word
-            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END         &kp INSERT
+            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END         &kp K_APP
             &trans          &none       &trans          &none               /**/            &none       &kp RET     &kp BACKSPACE   &kp DEL
             >;
 
