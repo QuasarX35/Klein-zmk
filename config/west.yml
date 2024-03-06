@@ -1,6 +1,8 @@
 manifest:
   remotes:
     - name: zmkfirmware
+      url-base: https://github.com/petejohanson
+    - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: infused-kim
       url-base: https://github.com/infused-kim
@@ -8,6 +10,10 @@ manifest:
     - name: zmk
       remote: infused-kim
       revision: my-changes/split-encoder
+      import: app/west.yml
+    - name: zmk
+      remote: zmkfirmware
+      revision: feat/pointers-move-scroll
       import: app/west.yml
   self:
     path: config
