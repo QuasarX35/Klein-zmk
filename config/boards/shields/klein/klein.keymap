@@ -38,7 +38,11 @@
 #define WARFRAME        12
 #define WARFRAME_EXTRA  13
 #define STENO           14
+#define ARTSEY_RIGHT    15
+#define ARTSEY_LEFT     16
 // #define MAKS 12
+
+/* ------------------------- ARTSEY key definitions ------------------------- */
 
 &out {
     OUT_BLE;
@@ -266,7 +270,7 @@
             bindings = <
             &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_NAV &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT   &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT       &caps_word
-            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV &trans  /**/  &kp HOME  &kp PG_UP   &kp PG_DN   &kp END         &kp K_APP
+            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV &trans  /**/  &kp HOME  &kp PG_DN   &kp PG_UP   &kp END         &kp K_APP
             &trans          &none       &trans          &none               /**/            &none       &kp RET     &kp BACKSPACE   &kp DEL
             >;
 
