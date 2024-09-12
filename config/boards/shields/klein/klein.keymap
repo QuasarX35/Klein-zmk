@@ -39,6 +39,8 @@
 #define WARFRAME_EXTRA  13
 #define APEX            14
 #define APEX_EXTRA      15
+#define MINECRAFT       16
+#define MINECRAFT_EXTRA 17
 
 // #define STENO           14
 // #define ARTSEY_RIGHT    15
@@ -367,10 +369,10 @@
 
         extra_layer {
             bindings = <
-&trans        &none          &trans     &trans  &trans    &trans  &none   &trans  &trans  &trans
-&tog GENSHIN  &tog WARFRAME  &tog APEX  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans        &trans         &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans        &trans         &trans     &none                     &none   &trans  &trans  &trans
+&trans        &none          &trans     &trans          &trans    &trans  &none   &trans  &trans  &trans
+&tog GENSHIN  &tog WARFRAME  &tog APEX  &tog MINECRAFT  &trans    &trans  &trans  &trans  &trans  &trans
+&trans        &trans         &trans     &trans          &trans    &trans  &trans  &trans  &trans  &trans
+&trans        &trans         &trans     &none                             &none   &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -455,10 +457,10 @@
 
         minecraft {
             bindings = <
-&minecraft_chat  &kp N1     &kp N2         &kp N3  &kp N4                &kp N5  &kp N6  &kp N7  &kp N8   &kp N9
-&kp LCTRL        &kp Q      &kp W          &kp E   &minecraft_command    &trans  &trans  &trans  &trans   &trans
-&kp LSHFT        &kp A      &kp S          &kp D   &kp Z                 &trans  &trans  &trans  &trans   &trans
-&kp LALT         &kp SPACE  &lt 17 ESCAPE  &trans                                &trans  &trans  &tog 16  &trans
+&minecraft_chat  &kp N1     &kp N2              &kp N3  &kp N4                &kp N5  &kp N6  &kp N7  &kp N8   &kp N9
+&kp LCTRL        &kp Q      &kp W               &kp E   &minecraft_command    &trans  &trans  &trans  &trans   &trans
+&kp LSHFT        &kp A      &kp S               &kp D   &kp Z                 &trans  &trans  &trans  &trans   &trans
+&kp LALT         &kp SPACE  &lt MINECRAFT_EXTRA ESCAPE  &trans                                &trans  &trans  &tog 16  &trans
             >;
 
             sensor-bindings =
