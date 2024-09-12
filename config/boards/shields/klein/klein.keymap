@@ -388,7 +388,7 @@
 
         genshin_layer {
             bindings = <
-&kp N5    &kp N1     &kp N2                 &kp N3  &kp N4    &o_genshin  &trans  &trans  &trans        &trans
+&kp N5    &kp N1     &kp N2                 &kp N3  &kp N4    &trans      &trans  &trans  &trans        &trans
 &mt V Z   &kp Q      &kp W                  &kp E   &kp R     &trans      &trans  &trans  &trans        &trans
 &mt X T   &kp A      &kp S                  &kp D   &kp F     &trans      &trans  &trans  &trans        &trans
 &kp LALT  &kp SPACE  &lt GENSHIN_EXTRA ESC  &none                         &none   &trans  &tog GENSHIN  &trans
