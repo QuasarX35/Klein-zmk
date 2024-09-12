@@ -458,8 +458,8 @@
         minecraft {
             bindings = <
 &minecraft_chat  &kp N1     &kp N2              &kp N3  &kp N4                &kp N5  &kp N6  &kp N7  &kp N8   &kp N9
-&kp LCTRL        &kp Q      &kp W               &kp E   &minecraft_command    &trans  &trans  &trans  &trans   &trans
-&kp LSHFT        &kp A      &kp S               &kp D   &kp Z                 &trans  &trans  &trans  &trans   &trans
+&kp LSHFT        &kp Q      &kp W               &kp E   &minecraft_command    &trans  &trans  &trans  &trans   &trans
+&kp LCTRL        &kp A      &kp S               &kp D   &kp Z                 &trans  &trans  &trans  &trans   &trans
 &kp LALT         &kp SPACE  &lt MINECRAFT_EXTRA ESCAPE  &trans                                &trans  &trans  &tog 16  &trans
             >;
 
