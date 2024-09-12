@@ -3,7 +3,6 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
 // Default config at: https://github.com/snsten/Klein-zmk/blob/main/config/boards/shields/klein/klein.keymap
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
@@ -11,16 +10,15 @@
 #include <behaviors/mouse_move.dtsi>
 #include <behaviors/mouse_key_press.dtsi>
 #include <behaviors/mouse_scroll.dtsi>
-#include <dt-bindings/zmk/mouse.h>
-
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/rgb.h>
 
 //* ------------------------ Default Layer Definitions ----------------------- *//
+
 #define DEFAULT 0
 #define NAV     1
 #define MOUSE   2
@@ -31,6 +29,7 @@
 #define FUN     7
 
 //* ------------------------- Extra Layer Definitions ------------------------ *//
+
 #define EXTRA           8
 #define TAP             9
 #define GENSHIN         10
@@ -39,20 +38,19 @@
 #define WARFRAME_EXTRA  13
 #define APEX            14
 #define APEX_EXTRA      15
+
 // #define STENO           14
 // #define ARTSEY_RIGHT    15
 // #define ARTSEY_LEFT     16
 // #define MAKS 12
-
 /* ------------------------- ARTSEY key definitions ------------------------- */
 
-&out {
-    OUT_BLE;
-};
+&out { OUT_BLE; };
 
 &mt {
     // quick-tap-ms: If you press a tapped hold-tap again within quick-tap-ms milliseconds, it will always trigger the tap behavior. This is useful for things like a backspace, where a quick tap+hold holds backspace pressed. Set this to a negative value to disable. The default is -1 (disabled).
     // tapping-term-ms: Defines how long a key must be pressed to trigger Hold behavior.
+
     quick-tap-ms = <10>;
     global-quick-tap;
     flavor = "tap-preferred";
@@ -65,14 +63,14 @@
     quick-tap-ms = <150>;
 };
 
-&msc { 
+&msc {
     time-to-max-speed-ms = <50>;
     acceleration-exponent = <1>;
 };
 
 &mmv { acceleration-exponent = <1>; };
 
-/ { 
+/ {
     behaviors {
         rot_tog: behavior_sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
@@ -82,11 +80,13 @@
         };
 
         //* ------------------------------- Mod Morphs ------------------------------- *//
+
         u_bt_sel_0: bluetooth_select_0 {
             label = "u_bt_sel_0";
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 0>, <&bt BT_CLR>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -95,6 +95,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 1>, <&bt BT_CLR>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -103,6 +104,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 2>, <&bt BT_CLR>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -111,11 +113,13 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 3>, <&bt BT_CLR>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         //* -------------------------------- Tap Dance ------------------------------- *//
         // double tap to activate layers
+
         u_to_U_DEFAULT: default_layer {
             label = "u_to_U_DEFAULT";
             compatible = "zmk,behavior-tap-dance";
@@ -223,46 +227,61 @@
         };
 
         //* --------------------------------- Macros --------------------------------- *//
-        scrsht: screenshot {
-            label = "screenshot";
+
+        minecraft_chat: minecraft_chat {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI &kp LSHFT>
-                , <&macro_tap &kp S>
-                , <&macro_release &kp LGUI &kp LSHFT>
-                ;
+            bindings = <&macro_press>, <&tog 16 &kp T>;
+
+            label = "MINECRAFT_CHAT";
         };
 
-        o_genshin: open_genshin {
-            label = "open_genshin";
+        minecraft_command: minecraft_command {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_tap &kp N1>
-                , <&macro_release &kp LGUI>
-                , <&macro_tap &kp G &kp A &kp RET>
-                , <&macro_press &kp LALT>
-                , <&macro_tap &kp F4>
-                , <&macro_release &kp LALT>
-                ;
+            bindings = <&macro_press>, <&tog 16 &kp SLASH>;
+
+            label = "MINECRAFT_COMMAND";
+        };
+
+        tweakeroo_config: tweakeroo_config {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&tog 16 &kp X &kp C>;
+
+            label = "TWEAKEROO_CONFIG";
+        };
+
+        minihud_config: minihud_config {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&tog 16 &kp H &kp C>;
+
+            label = "MINIHUD_CONFIG";
         };
     };
 
     combos {
         compatible = "zmk,combos";
+
+        to_extra_layer {
+            bindings = <&mo 8>;
+            key-positions = <35 36>;
+        };
     };
-    
+
+    macros {
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-            &kp Q           &kp W           &kp E           &kp R       &kp T   /**/    &kp Y   &kp U       &kp I           &kp O               &kp P
-            &hm LGUI A      &hm LALT S      &hm LCTRL D     &hm LSHFT F &kp G   /**/    &kp H   &hm RSHFT J &hm RCTRL K     &hm RALT L          &hm RGUI SQT
-            &lt BUTTON Z    &kp X           &kp C           &kp V       &kp B   /**/    &kp N   &kp M       &kp COMMA       &kp DOT             &lt BUTTON FSLH
-            &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB   &none               /**/            &none       &lt SYM RETURN  &lt NUM BACKSPACE   &lt FUN DEL
+&kp Q          &kp W          &kp E          &kp R        &kp T    &kp Y  &kp U        &kp I           &kp O              &kp P
+&hm LGUI A     &hm LALT S     &hm LCTRL D    &hm LSHFT F  &kp G    &kp H  &hm RSHFT J  &hm RCTRL K     &hm RALT L         &hm RGUI SQT
+&lt BUTTON Z   &kp X          &kp C          &kp V        &kp B    &kp N  &kp M        &kp COMMA       &kp DOT            &lt BUTTON FSLH
+&lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB  &none                        &none        &lt SYM RETURN  &lt NUM BACKSPACE  &lt FUN DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN_ARROW UP_ARROW>;
@@ -270,10 +289,10 @@
 
         nav_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_NAV &trans  /**/  &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)       &kp LC(Z)
-            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT   &trans  /**/  &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT       &caps_word
-            &trans          &kp RALT    &u_to_U_NUM     &u_to_U_NAV &trans  /**/  &kp HOME  &kp PG_DN   &kp PG_UP   &kp END         &kp K_APP
-            &trans          &none       &trans          &none               /**/            &none       &kp RET     &kp BACKSPACE   &kp DEL
+&U_BOOT   &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_NAV  &trans    &kp LC(Y)  &kp LC(V)  &kp LC(C)  &kp LC(X)      &kp LC(Z)
+&kp LGUI  &kp LALT     &kp LCTRL      &kp LSHFT    &trans    &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT      &caps_word
+&trans    &kp RALT     &u_to_U_NUM    &u_to_U_NAV  &trans    &kp HOME   &kp PG_DN  &kp PG_UP  &kp END        &kp K_APP
+&trans    &none        &trans         &none                             &none      &kp RET    &kp BACKSPACE  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -281,10 +300,10 @@
 
         mouse_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_MOUSE   &trans  /**/  &kp LC(Y)         &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)
-            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT       &trans  /**/  &mmv MOVE_LEFT    &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_RIGHT &trans
-            &trans          &kp RALT    &u_to_U_SYM     &u_to_U_MOUSE   &trans  /**/  &kp HOME          &kp PG_UP       &kp PG_DN       &kp END         &trans
-            &trans          &trans      &trans          &none                   /**/                    &none           &mkp RCLK       &mkp LCLK       &mkp MCLK
+&U_BOOT   &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_MOUSE  &trans    &kp LC(Y)       &kp LC(V)       &kp LC(C)     &kp LC(X)        &kp LC(Z)
+&kp LGUI  &kp LALT     &kp LCTRL      &kp LSHFT      &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
+&trans    &kp RALT     &u_to_U_SYM    &u_to_U_MOUSE  &trans    &kp HOME        &kp PG_UP       &kp PG_DN     &kp END          &trans
+&trans    &trans       &trans         &none                                    &none           &mkp RCLK     &mkp LCLK        &mkp MCLK
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -292,10 +311,10 @@
 
         button_layer {
             bindings = <
-            &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)   /**/   &kp LC(Y)    &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
-            &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &trans      /**/   &trans       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI
-            &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)   /**/   &kp LC(Y)    &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)
-            &kp ESC     &kp SPACE   &kp TAB     &none                   /**/                &none       &kp RET     &kp BSPC    &kp DEL
+&kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)    &kp LC(Y)  &kp LC(V)  &kp LC(C)  &kp LC(X)  &kp LC(Z)
+&kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans       &trans     &kp RSHFT  &kp RCTRL  &kp RALT   &kp RGUI
+&kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)    &kp LC(Y)  &kp LC(V)  &kp LC(C)  &kp LC(X)  &kp LC(Z)
+&kp ESC    &kp SPACE  &kp TAB    &none                              &none      &kp RET    &kp BSPC   &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -303,10 +322,10 @@
 
         media_layer {
             bindings = <
-            &U_BOOT         &u_to_U_TAP &u_to_U_EXTRA   &u_to_U_MEDIA   &trans  /**/  &scrsht       &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
-            &kp LGUI        &kp LALT    &kp LCTRL       &kp LSHFT       &trans  /**/  &kp C_PREV    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &ext_power EP_TOG
-            &trans          &kp RALT    &u_to_U_FUN     &u_to_U_MEDIA   &trans  /**/  &u_bt_sel_0   &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3     &bt BT_CLR
-            &trans          &trans      &trans          &none                   /**/                &none           &kp C_PAUSE     &kp C_PP        &kp C_MUTE
+&U_BOOT   &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_MEDIA  &trans    &scrsht      &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG
+&kp LGUI  &kp LALT     &kp LCTRL      &kp LSHFT      &trans    &kp C_PREV   &kp C_VOL_DN     &kp C_VOL_UP     &kp C_NEXT       &ext_power EP_TOG
+&trans    &kp RALT     &u_to_U_FUN    &u_to_U_MEDIA  &trans    &u_bt_sel_0  &u_bt_sel_1      &u_bt_sel_2      &u_bt_sel_3      &bt BT_CLR
+&trans    &trans       &trans         &none                                 &none            &kp C_PAUSE      &kp C_PP         &kp C_MUTE
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -314,10 +333,10 @@
 
         num_layer {
             bindings = <
-            &kp LBKT    &kp N7  &kp N8      &kp N9  &kp RBKT   /**/  &trans &u_to_U_NUM     &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
-            &kp SEMI    &kp N4  &kp N5      &kp N6  &kp EQUAL  /**/  &trans &kp RSHFT       &kp RCTRL       &kp RALT    &kp RGUI
-            &kp GRAVE   &kp N1  &kp N2      &kp N3  &kp BSLH   /**/  &trans &u_to_U_NUM     &u_to_U_NAV     &kp LALT    &trans
-            &kp PERIOD  &kp N0  &kp MINUS   &none              /**/         &none           &trans          &trans      &trans
+&kp LBKT    &kp N7  &kp N8     &kp N9  &kp RBKT     &trans  &u_to_U_NUM  &u_to_U_EXTRA  &u_to_U_TAP  &U_BOOT
+&kp SEMI    &kp N4  &kp N5     &kp N6  &kp EQUAL    &trans  &kp RSHFT    &kp RCTRL      &kp RALT     &kp RGUI
+&kp GRAVE   &kp N1  &kp N2     &kp N3  &kp BSLH     &trans  &u_to_U_NUM  &u_to_U_NAV    &kp LALT     &trans
+&kp PERIOD  &kp N0  &kp MINUS  &none                        &none        &trans         &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -325,10 +344,10 @@
 
         sym_layer {
             bindings = <
-            &kp LBRC    &kp AMPS    &kp ASTRK   &kp LPAR    &kp RBRC   /**/  &trans &u_to_U_SYM     &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
-            &kp COLON   &kp DOLLAR  &kp PERCENT &kp CARET   &kp PLUS   /**/  &trans &kp RSHFT       &kp RCTRL       &kp RALT    &kp RGUI
-            &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE   /**/  &trans &u_to_U_SYM     &u_to_U_MOUSE   &kp LALT    &trans
-            &kp LPAR    &kp RPAR    &kp UNDER   &none                  /**/         &none           &trans          &trans      &trans
+&kp LBRC   &kp AMPS    &kp ASTRK    &kp LPAR   &kp RBRC    &trans  &u_to_U_SYM  &u_to_U_EXTRA  &u_to_U_TAP  &U_BOOT
+&kp COLON  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp PLUS    &trans  &kp RSHFT    &kp RCTRL      &kp RALT     &kp RGUI
+&kp TILDE  &kp EXCL    &kp AT       &kp HASH   &kp PIPE    &trans  &u_to_U_SYM  &u_to_U_MOUSE  &kp LALT     &trans
+&kp LPAR   &kp RPAR    &kp UNDER    &none                          &none        &trans         &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -336,10 +355,10 @@
 
         fun_layer {
             bindings = <
-            &kp F12     &kp F7      &kp F8  &kp F9  &kp PSCRN        /**/  &trans &u_to_U_FUN     &u_to_U_EXTRA   &u_to_U_TAP &U_BOOT
-            &kp F11     &kp F4      &kp F5  &kp F6  &kp SLCK         /**/  &trans &kp RSHFT       &kp RCTRL       &kp RALT    &kp RGUI
-            &kp F10     &kp F1      &kp F2  &kp F3  &kp PAUSE_BREAK  /**/  &trans &u_to_U_FUN     &u_to_U_MEDIA   &kp LALT    &trans
-            &kp ESC     &kp SPACE   &kp TAB &none                                 &none           &trans          &trans      &trans
+&kp F12  &kp F7     &kp F8   &kp F9  &kp PSCRN          &trans  &u_to_U_FUN  &u_to_U_EXTRA  &u_to_U_TAP  &U_BOOT
+&kp F11  &kp F4     &kp F5   &kp F6  &kp SLCK           &trans  &kp RSHFT    &kp RCTRL      &kp RALT     &kp RGUI
+&kp F10  &kp F1     &kp F2   &kp F3  &kp PAUSE_BREAK    &trans  &u_to_U_FUN  &u_to_U_MEDIA  &kp LALT     &trans
+&kp ESC  &kp SPACE  &kp TAB  &none                              &none        &trans         &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -347,10 +366,10 @@
 
         extra_layer {
             bindings = <
-            &trans          &none           &trans      &trans  &trans  /**/  &trans    &none   &trans  &trans          &trans
-            &tog GENSHIN    &tog WARFRAME   &tog APEX   &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
-            &trans          &trans          &trans      &trans  &trans  /**/  &trans    &trans  &trans  &trans          &trans
-            &trans          &trans          &trans      &none           /**/            &none   &trans  &trans          &trans
+&trans        &none          &trans     &trans  &trans    &trans  &none   &trans  &trans  &trans
+&tog GENSHIN  &tog WARFRAME  &tog APEX  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans        &trans         &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans        &trans         &trans     &none                     &none   &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -358,10 +377,10 @@
 
         tap_layer {
             bindings = <
-            &kp Q   &kp W       &kp E   &kp R   &kp T  /**/  &kp Y    &kp U      &kp I      &kp O       &kp P
-            &kp A   &kp S       &kp D   &kp F   &kp G  /**/  &kp H    &kp J      &kp K      &kp L       &kp SQT
-            &kp Z   &kp X       &kp C   &kp V   &kp B  /**/  &kp N    &kp M      &kp COMMA  &kp PERIOD  &kp FSLH
-            &kp ESC &kp SPACE   &kp TAB &none          /**/           &none      &kp RET    &kp BSPC    &tog TAP
+&kp Q    &kp W      &kp E    &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O       &kp P
+&kp A    &kp S      &kp D    &kp F  &kp G    &kp H  &kp J  &kp K      &kp L       &kp SQT
+&kp Z    &kp X      &kp C    &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp FSLH
+&kp ESC  &kp SPACE  &kp TAB  &none                  &none  &kp RET    &kp BSPC    &tog TAP
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -369,10 +388,10 @@
 
         genshin_layer {
             bindings = <
-            &kp N5      &kp N1      &kp N2                  &kp N3  &kp N4     /**/  &o_genshin &trans           &trans  &trans          &trans
-            &mt V Z     &kp Q       &kp W                   &kp E   &kp R      /**/  &trans     &trans           &trans  &trans          &trans
-            &mt X T     &kp A       &kp S                   &kp D   &kp F      /**/  &trans     &trans           &trans  &trans          &trans
-            &kp LALT    &kp SPACE   &lt GENSHIN_EXTRA ESC   &none              /**/             &none            &trans  &tog GENSHIN    &trans
+&kp N5    &kp N1     &kp N2                 &kp N3  &kp N4    &o_genshin  &trans  &trans  &trans        &trans
+&mt V Z   &kp Q      &kp W                  &kp E   &kp R     &trans      &trans  &trans  &trans        &trans
+&mt X T   &kp A      &kp S                  &kp D   &kp F     &trans      &trans  &trans  &trans        &trans
+&kp LALT  &kp SPACE  &lt GENSHIN_EXTRA ESC  &none                         &none   &trans  &tog GENSHIN  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -380,10 +399,10 @@
 
         genshin_extra_layer {
             bindings = <
-            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     /**/  &trans    &trans   &trans  &bootloader &trans
-            &kp X   &kp O   &kp J   &kp P   &kp Y      /**/  &trans    &trans   &trans  &trans      &trans
-            &kp L   &kp B   &kp M   &kp C   &kp G      /**/  &trans    &trans   &trans  &trans      &trans
-            &trans  &trans  &trans  &none              /**/            &none    &trans  &trans      &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &trans  &trans  &trans  &bootloader  &trans
+&kp X   &kp O   &kp J   &kp P   &kp Y     &trans  &trans  &trans  &trans       &trans
+&kp L   &kp B   &kp M   &kp C   &kp G     &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &none                     &none   &trans  &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -391,10 +410,10 @@
 
         warframe_layer {
             bindings = <
-            &kp Y       &kp N1      &kp N2                  &kp N3  &kp N4   /**/   &trans    &trans   &trans  &bootloader      &trans
-            &kp LSHFT   &kp Q       &kp W                   &kp E   &kp R    /**/   &trans    &trans   &trans  &trans           &trans
-            &kp LCTRL   &kp A       &kp S                   &kp D   &kp F    /**/   &trans    &trans   &trans  &trans           &trans
-            &kp ESC     &kp SPACE   &lt WARFRAME_EXTRA N5   &none            /**/             &none    &trans  &tog WARFRAME    &trans
+&kp Y      &kp N1     &kp N2                 &kp N3  &kp N4    &trans  &trans  &trans  &bootloader    &trans
+&kp LSHFT  &kp Q      &kp W                  &kp E   &kp R     &trans  &trans  &trans  &trans         &trans
+&kp LCTRL  &kp A      &kp S                  &kp D   &kp F     &trans  &trans  &trans  &trans         &trans
+&kp ESC    &kp SPACE  &lt WARFRAME_EXTRA N5  &none                     &none   &trans  &tog WARFRAME  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -402,10 +421,10 @@
 
         warframe_extra_layer {
             bindings = <
-            &kp F10 &kp F8  &kp F6  &kp F7  &kp F9   /**/   &trans    &trans   &trans  &bootloader &trans
-            &kp F11 &kp F5  &kp F1  &kp F4  &kp Y    /**/   &trans    &trans   &trans  &trans      &trans
-            &kp L   &kp F2  &kp M   &kp F3  &kp G    /**/   &trans    &trans   &trans  &trans      &trans
-            &trans  &trans  &trans  &none            /**/             &none    &trans  &trans      &trans
+&kp F10  &kp F8  &kp F6  &kp F7  &kp F9    &trans  &trans  &trans  &bootloader  &trans
+&kp F11  &kp F5  &kp F1  &kp F4  &kp Y     &trans  &trans  &trans  &trans       &trans
+&kp L    &kp F2  &kp M   &kp F3  &kp G     &trans  &trans  &trans  &trans       &trans
+&trans   &trans  &trans  &none                     &none   &trans  &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -413,10 +432,10 @@
 
         apex_layer {
             bindings = <
-            &kp N       &kp N1      &kp N2              &kp N3  &kp N4   /**/   &trans    &trans   &trans  &bootloader  &trans
-            &kp LSHFT   &kp Q       &kp W               &kp E   &kp R    /**/   &trans    &trans   &trans  &trans       &trans
-            &kp LCTRL   &kp A       &kp S               &kp D   &kp F    /**/   &trans    &trans   &trans  &trans       &trans
-            &kp ESC     &kp SPACE   &lt APEX_EXTRA TAB  &none            /**/             &none    &trans  &tog APEX    &trans
+&kp N      &kp N1     &kp N2              &kp N3  &kp N4    &trans  &trans  &trans  &bootloader  &trans
+&kp LSHFT  &kp Q      &kp W               &kp E   &kp R     &trans  &trans  &trans  &trans       &trans
+&kp LCTRL  &kp A      &kp S               &kp D   &kp F     &trans  &trans  &trans  &trans       &trans
+&kp ESC    &kp SPACE  &lt APEX_EXTRA TAB  &none                     &none   &trans  &tog APEX    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -424,14 +443,37 @@
 
         apex_extra_layer {
             bindings = <
-            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     /**/  &trans    &trans   &trans  &bootloader &trans
-            &kp F6  &kp O   &kp T   &kp P   &kp Y      /**/  &trans    &trans   &trans  &trans      &trans
-            &kp L   &kp B   &kp M   &kp H   &kp X      /**/  &trans    &trans   &trans  &trans      &trans
-            &trans  &trans  &trans  &none              /**/            &none    &trans  &trans      &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &trans  &trans  &trans  &bootloader  &trans
+&kp F6  &kp O   &kp T   &kp P   &kp Y     &trans  &trans  &trans  &trans       &trans
+&kp L   &kp B   &kp M   &kp H   &kp X     &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &none                     &none   &trans  &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
+
+        minecraft {
+            bindings = <
+&minecraft_chat  &kp N1     &kp N2         &kp N3  &kp N4                &kp N5  &kp N6  &kp N7  &kp N8  &kp N9
+&kp LCTRL        &kp Q      &kp W          &kp E   &minecraft_command    &trans  &trans  &trans  &trans  &trans
+&kp LSHFT        &kp A      &kp S          &kp D   &kp Z                 &trans  &trans  &trans  &trans  &trans
+&kp LALT         &kp SPACE  &lt 17 ESCAPE  &trans                                &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
+                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+        };
+
+        minecraft_extra_layer_1 {
+            bindings = <
+&trans  &trans             &trans  &trans           &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans             &kp F3  &trans           &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &tweakeroo_config  &kp M   &minihud_config  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans             &none   &trans                             &trans  &trans  &trans  &trans
+            >;
+        };
+
         // steno_layer {
         //     bindings = <
         //     &kp Q       &kp W   &kp E   &kp R   &kp T   /**/    &kp U   &kp I   &kp O   &kp P       &kp LBKT
@@ -439,10 +481,8 @@
         //     &tog STENO  &none   &none   &none   &none   /**/    &none   &none   &none   &none       &tog STENO
         //     &none       &kp C   &kp V   &none           /**/            &none   &kp N   &kp M       &kp BSPC
         //     >;
-
         //     sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
         // };
-
         // maks_en_layer {
         //     bindings = <
         //     &kp SEMI    &kp COMMA   &kp U   &kp D   &kp BACKSPACE  /**/  &kp B  &kp F   &kp L       &kp J       &tog MAKS
@@ -450,7 +490,6 @@
         //     &kp QMARK   &kp DQT     &kp Y   &kp P   &kp K          /**/  &kp V  &kp C   &kp M       &kp X       &kp Q
         //     &kp LSHFT   &kp E       &kp DOT &none                               &none   &kp MINUS   &kp SPACE   &kp BACKSPACE
         //     >;
-
         //     sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         // };
     };
