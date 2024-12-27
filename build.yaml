@@ -17,6 +17,7 @@ include:
     shield: klein_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+    snippet: zmk-usb-logging
   - board: seeeduino_xiao_ble
     shield: klein_right
   - board: seeeduino_xiao_ble
