@@ -42,12 +42,10 @@
 #define MINECRAFT       16
 #define MINECRAFT_EXTRA 17
 
-// #define STENO           14
-// #define ARTSEY_RIGHT    15
-// #define ARTSEY_LEFT     16
-// #define MAKS 12
-/* ------------------------- ARTSEY key definitions ------------------------- */
-&studio_unlock {};
+// #define STENO        18
+// #define MAKS         19
+
+&studio_unlock;
 
 &out { OUT_BLE; };
 
