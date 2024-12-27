@@ -8,10 +8,10 @@
 #include "klein-layouts.dtsi"
 
 // Assigning suitable kscan and matrix transforms
-&physical_layout0 {
-    kscan = <&kscan0>;
-    transform = <&matrix_transform0>;
-};
+// &physical_layout0 {
+//     kscan = <&kscan0>;
+//     transform = <&matrix_transform0>;
+// };
 
 / {
 	chosen {
