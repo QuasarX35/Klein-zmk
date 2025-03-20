@@ -453,10 +453,10 @@
 
         cs_layer {
             bindings = <
-&mt G B    &kp N1     &kp N2              &kp N3  &kp N4    &trans  &trans  &trans  &bootloader  &trans
-&kp LSHFT  &kp Q      &kp W               &kp E   &kp R     &trans  &trans  &trans  &trans       &trans
-&kp LCTRL  &kp A      &kp S               &kp D   &kp F     &trans  &trans  &trans  &trans       &trans
-&kp ESC    &kp SPACE  &kp TAB             &none                     &none   &trans  &tog CS      &trans
+&kp LSHFT   &kp Q      &kp W     &kp E   &kp R    &trans  &trans  &trans  &bootloader  &trans
+&kp LCTRL   &kp A      &kp S     &kp D   &kp F     &trans  &trans  &trans  &trans       &trans
+&kp LCTRL   &kp N1     &kp N2    &kp G   &kp B     &trans  &trans  &trans  &trans       &trans
+&kp ESC     &kp SPACE  &kp TAB   &none                     &none   &trans  &tog CS      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
