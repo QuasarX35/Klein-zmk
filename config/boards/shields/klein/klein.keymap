@@ -40,16 +40,12 @@
 #define WARFRAME_EXTRA  13
 #define APEX            14
 #define APEX_EXTRA      15
-#define MINECRAFT       16
-#define MINECRAFT_EXTRA 17
+#define CS              16
 
-// #define STENO           14
-// #define ARTSEY_RIGHT    15
-// #define ARTSEY_LEFT     16
-// #define MAKS 12
-/* ------------------------- ARTSEY key definitions ------------------------- */
+// #define STENO        18
+// #define MAKS         19
 
-&out { OUT_BLE; };
+// &out { OUT_BLE; };
 
 &mt {
     // quick-tap-ms: If you press a tapped hold-tap again within quick-tap-ms milliseconds, it will always trigger the tap behavior. This is useful for things like a backspace, where a quick tap+hold holds backspace pressed. Set this to a negative value to disable. The default is -1 (disabled).
@@ -371,7 +367,7 @@
         extra_layer {
             bindings = <
 &trans        &none          &trans     &trans          &trans    &trans  &none   &trans  &trans  &trans
-&tog GENSHIN  &tog WARFRAME  &tog APEX  &tog MINECRAFT  &trans    &trans  &trans  &trans  &trans  &trans
+&tog GENSHIN  &tog WARFRAME  &tog APEX  &tog CS         &trans    &trans  &trans  &trans  &trans  &trans
 &trans        &trans         &trans     &trans          &trans    &trans  &trans  &trans  &trans  &trans
 &trans        &trans         &trans     &none                             &none   &trans  &trans  &trans
             >;
@@ -456,26 +452,15 @@
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        minecraft {
+        cs_layer {
             bindings = <
-&minecraft_chat  &kp N1     &kp N2              &kp N3  &kp N4                &kp N5  &kp N6  &kp N7  &kp N8   &kp N9
-&kp LSHFT        &kp Q      &kp W               &kp E   &minecraft_command    &trans  &trans  &trans  &trans   &trans
-&kp LCTRL        &kp A      &kp S               &kp D   &kp Z                 &trans  &trans  &trans  &trans   &trans
-&kp LALT         &kp SPACE  &lt MINECRAFT_EXTRA ESCAPE  &trans                                &trans  &trans  &tog 16  &trans
+&kp LSHFT   &kp Q      &kp W     &kp E   &kp R    &trans  &trans  &trans  &bootloader  &trans
+&kp LCTRL   &kp A      &kp S     &kp D   &kp F     &trans  &trans  &trans  &trans       &trans
+&kp LCTRL   &kp N1     &kp N2    &kp G   &kp B     &trans  &trans  &trans  &trans       &trans
+&kp ESC     &kp SPACE  &kp TAB   &none                     &none   &trans  &tog CS      &trans
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-        };
-
-        minecraft_extra_layer_1 {
-            bindings = <
-&trans  &trans             &trans  &trans           &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans             &kp F3  &trans           &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &tweakeroo_config  &kp M   &minihud_config  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans             &none   &trans                             &trans  &trans  &trans  &trans
-            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         // steno_layer {
